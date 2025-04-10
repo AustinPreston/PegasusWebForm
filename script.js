@@ -31,13 +31,23 @@ form.addEventListener('submit', e => {
 
   const formData = new FormData(form);
 
-  fetch(scriptURL, { method: 'POST', body: formData })
-    .then(() => {
+  fetch(scriptURL, {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => {
+    if (response.ok) {
       alert('Form submitted successfully!');
       form.reset();
       hideAllOtherInputs();
-    })
-    .catch(error => console.error('Error!', error.message));
+    } else {
+      alert('Error submitting form. Please try again.');
+    }
+  })
+  .catch(error => {
+    console.error('Error!', error.message);
+    alert('Error submitting form. Please try again.');
+  });
 });
 
 // Show/Hide "Other" fields
