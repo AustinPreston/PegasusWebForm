@@ -50,7 +50,7 @@ form.addEventListener('submit', e => {
   });
 });
 
-// Show/Hide "Other" fields
+// Show/Hide "Other" Fields
 const otherFields = [
   { checkbox: 'input[name="ethnicity"][value="Other"]', input: 'ethnicity-other' },
   { checkbox: 'input[name="special"][value="Other"]', input: 'special-other' },
