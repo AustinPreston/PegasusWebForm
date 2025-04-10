@@ -1,80 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mentee Profile Form</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-  ...your form...
 
-  <script src="script.js" defer></script>
-</body>
+  <h1>Mentee Profile Form</h1>
+  <p class="form-intro">
+    Hi there! We'll use this information to best match you with one of our mentors.
+  </p>
 
-<h1>Mentee Profile Form</h1>
-<p class="form-intro">
-  Hi there! We'll use this information to best match you with one of our mentors.
-</p>
+  <form id="mentee-form">
 
-<form>
+    <fieldset>
+      <label for="fullname">Full Name <span style="color:red">*</span></label>
+      <input type="text" id="fullname" name="fullname" required>
+    </fieldset>
 
-  <fieldset>
-    <label for="fullname">Enter your Full Name <span style="color: red">*</span></label><br>
-    <input type="text" id="fullname" required>
-  </fieldset>
+    <fieldset>
+      <label for="email">Email Address <span style="color:red">*</span></label>
+      <input type="email" id="email" name="email" required>
+    </fieldset>
 
-  <fieldset>
-    <label for="email">Email Address <span style="color: red">*</span></label><br>
-    <input type="email" id="email" required>
-  </fieldset>
+    <fieldset>
+      <label for="highschool">High School <span style="color:red">*</span></label>
+      <input type="text" id="highschool" name="highschool" required>
+    </fieldset>
 
-  <fieldset>
-    <label for="highschool">High School you attend <span style="color: red">*</span></label><br>
-    <input type="text" id="highschool" required>
-  </fieldset>
+    <fieldset>
+      <label for="currentclass">Current Class <span style="color:red">*</span></label>
+      <select id="currentclass" name="currentclass" required>
+        <option value="" disabled selected>Select</option>
+        <option>Freshman</option>
+        <option>Sophomore</option>
+        <option>Junior</option>
+        <option>Senior</option>
+        <option>Other</option>
+      </select>
+    </fieldset>
 
-  <fieldset>
-    <label for="currentclass">Current Class <span style="color: red">*</span></label><br>
-    <select id="currentclass" required>
-      <option value="" disabled selected>Select</option>
-      <option>Freshman</option>
-      <option>Sophomore</option>
-      <option>Junior</option>
-      <option>Senior</option>
-      <option>Other</option>
-    </select>
-  </fieldset>
+    <fieldset>
+      <legend><strong>Ethnicity <span style="color:red">*</span></strong></legend>
+      <label><input type="checkbox" name="ethnicity" value="American Indian or Alaska Native or Indigenous"> American Indian or Alaska Native or Indigenous</label><br>
+      <label><input type="checkbox" name="ethnicity" value="Asian"> Asian</label><br>
+      <label><input type="checkbox" name="ethnicity" value="Black or African American"> Black or African American</label><br>
+      <label><input type="checkbox" name="ethnicity" value="Hispanic or Latino/Latine/Latinx"> Hispanic or Latino/Latine/Latinx</label><br>
+      <label><input type="checkbox" name="ethnicity" value="Native Hawaiian or Other Pacific Islander"> Native Hawaiian or Other Pacific Islander</label><br>
+      <label><input type="checkbox" name="ethnicity" value="White"> White</label><br>
+      <label><input type="checkbox" name="ethnicity" value="Other"> Other</label>
+      <input type="text" id="ethnicity-other" name="ethnicity-other" placeholder="Please specify" style="display:none;">
+    </fieldset>
 
-  <fieldset>
-    <legend><strong>Ethnicity <span style="color:red">*</span></strong></legend>
-    <label><input type="checkbox" name="ethnicity" value="American Indian or Alaska Native or Indigenous (Other)"> American Indian or Alaska Native or Indigenous (Other)</label><br>
-    <label><input type="checkbox" name="ethnicity" value="Asian"> Asian</label><br>
-    <label><input type="checkbox" name="ethnicity" value="Black or African American"> Black or African American</label><br>
-    <label><input type="checkbox" name="ethnicity" value="Hispanic or Latino/Latine/Latinx"> Hispanic or Latino/Latine/Latinx</label><br>
-    <label><input type="checkbox" name="ethnicity" value="Native Hawaiian or Other Pacific Islander"> Native Hawaiian or Other Pacific Islander</label><br>
-    <label><input type="checkbox" name="ethnicity" value="White"> White</label><br>
-    <label><input type="checkbox" name="ethnicity" value="Other"> Other</label>
-    <input type="text" id="ethnicity-other" placeholder="Please specify" style="display:none; margin-top:8px;">
-  </fieldset>
+    <fieldset>
+      <label for="gender">Gender Identity <span style="color:red">*</span></label>
+      <select id="gender" name="gender" required>
+        <option value="" disabled selected>Select</option>
+        <option>Female</option>
+        <option>Male</option>
+        <option>Prefer Not to Say</option>
+        <option>Other</option>
+      </select>
+    </fieldset>
 
-  <fieldset>
-    <label for="gender">Select Your Gender Identity <span style="color: red">*</span></label><br>
-    <select id="gender" required>
-      <option value="" disabled selected>Select</option>
-      <option>Female</option>
-      <option>Male</option>
-      <option>Prefer Not to Say</option>
-      <option>Other</option>
-    </select>
-  </fieldset>
-
-  <fieldset>
-    <legend><strong>Special Considerations</strong></legend>
-    <label><input type="checkbox" name="special" value="LGBTQIA+"> LGBTQIA+</label><br>
-    <label><input type="checkbox" name="special" value="First-Generation"> First-Generation</label><br>
-    <label><input type="checkbox" name="special" value="Low-Income"> Low-Income</label><br>
-    <label><input type="checkbox" name="special" value="From a Rural Area"> From a Rural Area</label><br>
-    <label><input type="checkbox" name="special" value="Disabled"> Disabled</label><br>
-    <label><input type="checkbox" name="special" value="Other"> Other</label>
-    <input type="text" id="special-other" placeholder="Please specify" style="display:none; margin-top:8px;">
-  </fieldset>
+    <fieldset>
+      <legend><strong>Special Considerations</strong></legend>
+      <label><input type="checkbox" name="special" value="LGBTQIA+"> LGBTQIA+</label><br>
+      <label><input type="checkbox" name="special" value="First-Generation"> First-Generation</label><br>
+      <label><input type="checkbox" name="special" value="Low-Income"> Low-Income</label><br>
+      <label><input type="checkbox" name="special" value="From a Rural Area"> From a Rural Area</label><br>
+      <label><input type="checkbox" name="special" value="Disabled"> Disabled</label><br>
+      <label><input type="checkbox" name="special" value="Other"> Other</label>
+      <input type="text" id="special-other" name="special-other" placeholder="Please specify" style="display:none;">
+    </fieldset>
 
   <fieldset>
     <label for="major">What is Your Intended College Major?</label><br>
@@ -189,8 +191,12 @@
     <textarea id="legacy" required></textarea>
   </fieldset>
 
-  <br>
-  <button type="submit">Submit</button>
+    <button type="submit">Submit</button>
 
-  <button type="submit">Submit</button>
-</form>
+  </form>
+
+  <script src="script.js" defer></script>
+
+</body>
+
+</html>
