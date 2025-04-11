@@ -138,3 +138,41 @@ small {
 .home-button:hover {
   background-color: #004bcc;
 }
+
+.success-message {
+  background-color: white;
+  padding: 60px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.success-message h1 {
+  color: #0c2e60;
+  font-size: 32px;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.success-message p {
+  color: #475569;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.back-home-btn {
+  display: inline-block;
+  padding: 12px 32px;
+  background-color: #0c2e60;
+  color: white;
+  border-radius: 8px;
+  font-size: 16px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.back-home-btn:hover {
+  background-color: #093170;
+}
