@@ -5,18 +5,40 @@ const form = document.querySelector('#mentee-form');
 form.addEventListener('submit', e => {
   e.preventDefault();
 
+  let valid = true;
+
+  if (![...document.querySelectorAll('input[name="ethnicity"]:checked')].length) {
+    alert('Please select at least one Ethnicity option.');
+    valid = false;
+  }
+
+  if (![...document.querySelectorAll('input[name="special"]:checked')].length) {
+    alert('Please select at least one Special Consideration.');
+    valid = false;
+  }
+
+  if (![...document.querySelectorAll('input[name="schools"]:checked')].length) {
+    alert('Please select at least one School.');
+    valid = false;
+  }
+
+  if (![...document.querySelectorAll('input[name="corevalues"]:checked')].length) {
+    alert('Please select at least one Core Value.');
+    valid = false;
+  }
+
+  if (!valid) return;
+
   const formData = new FormData(form);
 
   fetch(scriptURL, { method: 'POST', body: formData })
-    .then(response => response.json())
-    .then(data => {
-      if (data.result === "success") {
-        alert('Form submitted successfully!');
-        form.reset();
-        hideAllOtherInputs();
-      } else {
-        alert('Error submitting form.');
-      }
+    .then(() => {
+      // Reset form
+      form.reset();
+      hideAllOtherInputs();
+
+      // Replace form with success message
+      showSuccessScreen();
     })
     .catch(error => {
       console.error('Error:', error);
@@ -24,6 +46,8 @@ form.addEventListener('submit', e => {
     });
 });
 
+
+// Handle Show/Hide for "Other" checkboxes
 const otherFields = [
   { checkbox: 'input[name="ethnicity"][value="Other"]', input: 'ethnicity-other' },
   { checkbox: 'input[name="special"][value="Other"]', input: 'special-other' },
@@ -41,6 +65,7 @@ otherFields.forEach(({ checkbox, input }) => {
   });
 });
 
+
 function hideAllOtherInputs() {
   otherFields.forEach(({ input }) => {
     const inputEl = document.getElementById(input);
@@ -49,3 +74,12 @@ function hideAllOtherInputs() {
     inputEl.value = '';
   });
 }
+
+function showSuccessScreen() {
+  const container = document.getElementById('form-container');
+  container.innerHTML = `
+    <h1>Thank You!</h1>
+    <p class="form-intro">Your submission has been received. We'll be in touch soon!</p>
+  `;
+}
+
