@@ -30,6 +30,17 @@ form.addEventListener('submit', e => {
   if (!valid) return;
 
   const formData = new FormData(form);
+  const plainFormData = Object.fromEntries(formData.entries());
+  const jsonData = JSON.stringify(plainFormData);
+
+fetch(scriptURL, {
+  method: 'POST',
+  body: jsonData,
+  headers: {
+    'Content-Type': 'application/json'
+  }
+})
+
 
   fetch(scriptURL, { method: 'POST', body: formData })
     .then(() => {
