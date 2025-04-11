@@ -75,7 +75,10 @@ function hideAllOtherInputs() {
 function showSuccessScreen() {
   const container = document.getElementById('form-container');
   container.innerHTML = `
-    <h1>Thank You!</h1>
-    <p class="form-intro">Your submission has been received. We'll be in touch soon!</p>
+    <div class="success-container">
+      <h1>🎉 Thank You!</h1>
+      <p>Your submission has been received. We'll be in touch very soon.</p>
+      <a href="/" class="home-button">Return Home</a>
+    </div>
   `;
 }
