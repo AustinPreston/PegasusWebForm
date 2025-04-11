@@ -1,6 +1,7 @@
 const scriptURL = 'https://script.google.com/macros/s/AKfycbxYtm0DtvDEASRRiCAP5ei5KCrXQtBYDWosL1jXvkgEzdhQIrD659cGvXvufh5KU4ts/exec';
 
 const form = document.querySelector('#mentee-form');
+const container = document.querySelector('#form-container');  // your wrapping div
 
 form.addEventListener('submit', e => {
   e.preventDefault();
@@ -33,11 +34,8 @@ form.addEventListener('submit', e => {
 
   fetch(scriptURL, { method: 'POST', body: formData })
     .then(() => {
-      // Reset form
       form.reset();
       hideAllOtherInputs();
-
-      // Replace form with success message
       showSuccessScreen();
     })
     .catch(error => {
@@ -47,7 +45,6 @@ form.addEventListener('submit', e => {
 });
 
 
-// Handle Show/Hide for "Other" checkboxes
 const otherFields = [
   { checkbox: 'input[name="ethnicity"][value="Other"]', input: 'ethnicity-other' },
   { checkbox: 'input[name="special"][value="Other"]', input: 'special-other' },
@@ -65,7 +62,6 @@ otherFields.forEach(({ checkbox, input }) => {
   });
 });
 
-
 function hideAllOtherInputs() {
   otherFields.forEach(({ input }) => {
     const inputEl = document.getElementById(input);
@@ -76,10 +72,10 @@ function hideAllOtherInputs() {
 }
 
 function showSuccessScreen() {
-  const container = document.getElementById('form-container');
   container.innerHTML = `
-    <h1>Thank You!</h1>
-    <p class="form-intro">Your submission has been received. We'll be in touch soon!</p>
+    <div style="text-align:center; padding: 40px;">
+      <h1 style="color: #0066ff;">Thank You!</h1>
+      <p>Your form has been submitted successfully. We'll reach out to you shortly.</p>
+    </div>
   `;
 }
-
